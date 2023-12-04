@@ -23,7 +23,7 @@ const int gsrPin = A0;  // Analog pin to read GSR data
 
 int p_id = 0;
 
-//add your topic
+//add your topic here
 
 WiFiClientSecure net;
 BearSSL::X509List cert(cacert);
