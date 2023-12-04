@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stress Detector Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+    <!-- <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <em>Enable Dark Mode!</em>
+    </div> -->
+    <h1>Stress Detector Dashboard</h1>
+    <div id="deviceInput">
+        <label for="device_id">Enter Device ID:</label>
+        <input type="text" id="device_id" placeholder="e.g. 1234">
+        <button onclick="fetchData()">Get Data</button>
+    </div>
+    <div id="loader" class="loader"></div>
+    <div id="info" class="info-card">
+        <p>Timestamp: <span id="timestamp">--/--/---- --:--:--</span></p>
+        <p>Device ID: <span id="device_d_id"></span></p>
+    </div>
+    <div id="noDataError" class="info-card hidden">
+        <p>No data found for the entered Device ID. Please check the ID and try again.</p>
+    </div>
+    <div class="chart-row">
+        <div class="chart-container" id="chartcanvas">
+          <canvas id="accChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="edaChart"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-row">
+        <div class="chart-container" id="chartcanvas">
+          <canvas id="tempChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="predictionChart"></canvas>
+        </div>
+      </div>      
+    <div id="maxPredictionSummary" class="info-card"></div>
+    <div id="feedbackSection" class="info-card">
+        <p>How are you actually feeling (apart from the prediction, used for model improvement)?</p>
+        <div id="feedbackControlGroup">
+            <select id="userFeedback">
+                <option value="0">No Stress</option>
+                <option value="1">Stress</option>
+                <option value="2">Amusement</option>
+            </select>
+            <button onclick="submitFeedback()">Send Feedback</button>
+        </div>
+        <div id="feedbackMessage" style="text-align: center; margin-top: 8px;"></div>
+    </div>
+</div>
+<script src="scripts.js"></script>  
+</body>
+</html>
